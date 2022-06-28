@@ -62,9 +62,9 @@ function rotateLeft(arr, d) {
 
   for (let i = 0; i < g; i++) {
     let temp = arr[i];
-    let j = i; //
+    let j = i; //* index jaha copy kerna hai
     while (true) {
-      let k = (j + d) % n; //* inner loop will end when k again becoms equal to i,
+      let k = (j + d) % n; //* inner loop will end when k again becoms equal to i, // index jaha se copy kerna hai
 
       if (k === i) break;
 
@@ -75,7 +75,7 @@ function rotateLeft(arr, d) {
     arr[j] = temp;
   }
   return arr;
-}*/
+*/
 // !================= Method 4: The Reversal Algorithm
 //* Reverse A to get ArB, where Ar is reverse of A.
 //* Reverse B to get ArBr, where Br is reverse of B.

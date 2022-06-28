@@ -45,6 +45,7 @@ function sort012(arr, N)
 //! ================Method 2 (Dutch National Flag Method) ===================
 // * Time Complexity: O(n). Only one traversal of the array is needed.
 //* 8 Space Complexity: O(1). No extra space is required.
+
 // * Examine a[Mid]. There are three possibilities:
 //*  a[Mid] is (0) red, (1) white or (2) blue.
 // * Case (0) a[Mid] is red, swap a[Lo] and a[Mid]; Lo++; Mid++
