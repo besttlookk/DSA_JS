@@ -1,3 +1,6 @@
+// !==================Links ========================
+// * https://practice.geeksforgeeks.org/problems/intersection-of-two-arrays2404/1
+
 function doIntersectionSorted(a, b) {
   // *Note: arrays are sorted
   let i = 0; //* pointer for array a

@@ -1,5 +1,5 @@
 // ! =========Links ===========
-
+// * https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/
 // !========================= Method 1(Using extra array) =============================
 // * Move all negative elements to end in order with extra space allowed
 // * Time Complexity : O(n)
@@ -26,6 +26,7 @@ function segregateElements(arr, n) {
 */
 
 // !============Metnod 2 (Using extra array) =================
+/*
 function segregateElements(arr, n) {
   let temp = Array(n);
   let j = 0; //* index for temp
@@ -51,7 +52,7 @@ function segregateElements(arr, n) {
 
   return arr;
 }
-
+*/
 // !================ Method 3(Order changing) ======================
 /*
 function segregateElements(arr, n) {
@@ -76,4 +77,41 @@ function segregateElements(arr, n) {
 }
 
 */
+
+// !==============Method 4(partition process of quicksort.)(Order changes)
+// * Time complexity: O(N)
+// * Auxiliary Space: O(1)
+
+// * This takes unneccecary swap
+/*
+function segregateElements(arr, n) {
+  let i = -1;
+
+  for (let j = 0; j < n; j++) {
+    if (arr[j] >= 0) {
+      i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+
+  return arr;
+}
+*/
+// *
+function segregateElements(arr, n) {
+  let j = 0;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] >= 0) {
+      if (i != j) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+      j++;
+    }
+  }
+  return arr;
+}
 console.log(segregateElements([-8, 9, 5, 10, 2, 6, -7, 7], 8));
+
+//  ! The problem becomes difficult if we need to maintain the order of elements. Please refer to "Rearrange positive and negative numbers with constant extra space" for details.

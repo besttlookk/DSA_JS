@@ -3,7 +3,7 @@
 
 // !===============
 function getMinDiff(arr, n, k) {
-  arr.sort((a, b) => a - b);
+  arr.sort((a, b) => a - b); //* Important step
   let tempMin = arr[0];
   let tempMax = arr[n - 1];
 
@@ -15,11 +15,10 @@ function getMinDiff(arr, n, k) {
   for (let i = 1; i < n; i++) {
     // * for new temp min we will add "K" to the zero index element and substract K from each index. Then chose min from them
     tempMin = Math.min(smallest, arr[i] - k);
+    if (tempMin < 0) continue; // * Height cant be negative
 
     // * similarluy for max
     tempMax = Math.max(largest, arr[i - 1] + k);
-
-    if (tempMin < 0) continue;
 
     minDiff = Math.min(minDiff, tempMax - tempMin);
   }

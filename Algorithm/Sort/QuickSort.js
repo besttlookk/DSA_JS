@@ -67,7 +67,7 @@ function partition(arr, left, right) {
     }
   }
 
-  [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
+  [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]]; //* exat position for pivot is just after i
   return i + 1;
 }
 

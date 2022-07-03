@@ -117,7 +117,7 @@ let findKthLargest = function (nums, k) {
 // * The algorithm is similar to QuickSort. The difference is, instead of recurring for both sides (after finding pivot), it recurs only for the part that contains the k-th larget element.
 // * This reduces the expected complexity from O(n log n) to O(n), with a worst case of O(n^2).
 // * Like quicksort, it is fast in practice, but has poor worst-case performance. It is used in
-// * The partition process is same as QuickSort, only recursive code differs.
+// ! The partition process is same as QuickSort, only recursive code differs.
 // * for kth largest , comarare partition with (n - k),
 // * for kth smallest, compare partition with (k - 1)
 
@@ -143,7 +143,10 @@ function partition(arr, low, high) {
 let findKthLargest = function (nums, k, low = 0, high = nums.length - 1) {
   let pi = partition(nums, low, high);
 
-  if (pi === nums.length - k) return nums[pi];
+  if (pi === nums.length - k)
+    return nums[
+      pi
+    ]; //* place of kth largest element in sorted arr is [nums.length - k]
   // * if partition value is less than kth position, search right side of the array.
   else if (pi < nums.length - k) return findKthLargest(nums, k, pi + 1, high);
   // * if partition value is more than kth position, search left side of the array.

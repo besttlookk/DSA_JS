@@ -1,4 +1,8 @@
-// ! Largest Sum Contiguous Subarray
+// !============== Largest Sum Contiguous Subarray ======================
+// * Given an array Arr[] of N integers. Find the contiguous sub-array(containing at least one number) which has the maximum sum and return its sum.
+
+//* INPUT: Arr[] = {1,2,3,-2,5}  || OUT: 9
+// * Arr[] = {-1,-2,-3,-4} || -1
 // ! =============Links
 // * https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 // * https://practice.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1/?page=1&curated[]=2&sortBy=submissions
@@ -26,7 +30,8 @@ function maxSubarraySum(arr, N) {
 */
 
 // !================Method 2(// ! Kadane's Algorithm) ==================
-//* The simple idea of Kadane’s algorithm is to look for all positive contiguous segments of the array (max_ending_here is used for this). And keep track of maximum sum contiguous segment among all positive segments (max_so_far is used for this).
+//* The simple idea of Kadane’s algorithm is to look for all positive contiguous segments of the array (max_ending_here is used for this).
+// * And keep track of maximum sum contiguous segment among all positive segments (max_so_far is used for this).
 // * Each time we get a positive sum compare it with max_so_far and update max_so_far if it is greater than max_so_far
 
 //*  The above algorithm only works if and only if at least one positive number should be present otherwise it does not work i.e if an Array contains all negative numbers it doesn’t work.
@@ -44,6 +49,7 @@ function maxSubarraySum(arr, N) {
       maxSoFar = currentSum;
     }
 
+    // * jab v negative jaaye ..sum ko zero ker do
     if (currentSum < 0) {
       currentSum = 0;
     }
@@ -52,7 +58,7 @@ function maxSubarraySum(arr, N) {
   return maxSoFar;
 }
 */
-// ! ===================MEthod 3 =====================
+// ! ===================MEthod 3 (If we have to get index )=====================
 /*
 function maxSubarraySum(arr, N) {
   let maxSoFar = arr[0];

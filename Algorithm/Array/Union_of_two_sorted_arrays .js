@@ -1,3 +1,10 @@
+// !============Union of two sorted array
+// * Union of the two arrays can be defined as the set containing distinct elements from both the arrays.
+// * If there are repetitions, then only one occurrence of element should be printed in the union.
+
+// !=============== Links =============
+//  * https://practice.geeksforgeeks.org/problems/union-of-two-arrays3538/1
+
 // !========== Method 2(merge algo with dublicate removal)==================
 function doUnion(a, n, b, m) {
   // *Note: arrays are sorted
