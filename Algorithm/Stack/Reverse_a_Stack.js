@@ -4,6 +4,11 @@
 // *Expected Time Complexity: O(N)
 // * Expected Auxiliary Space: O(N)
 
+// !===================Links ===============
+// * https://www.geeksforgeeks.org/reverse-a-stack-using-recursion/
+// * https://www.codingninjas.com/blog/2021/08/24/reversing-a-stack/
+// * https://practice.geeksforgeeks.org/problems/reverse-a-stack/1/?page=3&category[]=Stack&sortBy=submissions
+
 // !========Method 1(Using another stack)=====================
 // * Time Complexity: O(N)
 // *  The loop runs for n times and the time complexity for all the stack operations is O(1). Therefore the overall time complexity is O(N
@@ -55,3 +60,39 @@ function reverseStack(s) {
 
 */
 // !==============Method 3(Using recursion) =================
+// * if the question specifies that no other data structure can be used to solve the problem, recursion has to be used.
+// * In this approach, we pop the top element from the given stack and recursively call another instance of the same function
+// * When this child function returns to the parent function, append the popped element to the bottom of the stack.
+// * For this, we would be using two recursive functions: reverseStack() and insertAtBottom().
+
+function reverse(st) {
+  if (st.length > 0) {
+    //* Hold all items in Function Call Stack until we reach end of the stack
+    let x = st.pop();
+    reverse(st);
+
+    //* Insert all the items held in Function Call Stack one by one from the bottom
+    //* to top. Every item is inserted at the bottom
+    insertAtBottom(st, x);
+  }
+}
+
+function insertAtBottom(st, x) {
+  if (st.length == 0) st.push(x);
+  else {
+    // All items are held in Function
+    // Call Stack until we reach end
+    // of the stack. When the stack becomes
+    // empty, the st.size() becomes 0, the
+    // above if part is executed and
+    // the item is inserted at the bottom
+    let a = st.pop();
+    insertAtBottom(x);
+
+    // push allthe items held
+    // in Function Call Stack
+    // once the item is inserted
+    // at the bottom
+    st.push(a);
+  }
+}
