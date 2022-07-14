@@ -2,6 +2,7 @@
 
 // !=============Links =============
 // * https://practice.geeksforgeeks.org/problems/immediate-smaller-element1142/1/?page=2&category[]=Stack&sortBy=submissions
+// * https://practice.geeksforgeeks.org/problems/fab3dbbdce746976ba35c7b9b24afde40eae5a04/0/?page=3&category[]=Stack&sortBy=submissions
 
 // !===================Method 1 (stack) ================
 /*

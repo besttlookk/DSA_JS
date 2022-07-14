@@ -8,6 +8,8 @@
 // * # the longest path between leaves that goes through the root of T (this can be computed from the heights of the subtrees of T)
 
 // !===================Links =======
+// * https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1/
+// * https://www.geeksforgeeks.org/diameter-of-a-binary-tree/
 
 // !=============Method 1(recursion)===========
 
@@ -53,6 +55,6 @@ function height(node) {
 }
 
 function diameter(root) {
-  innerHeight(root);
+  height(root);
   return ans;
 }

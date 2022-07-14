@@ -9,7 +9,7 @@
 // *            # keep popping out the stack and print till we get lower precedence.
 // * Once the expression is finished, keep popping fron the stack and print.
 
-// !==============Links ==============
+// !==========================Links ==============
 // * https://practice.geeksforgeeks.org/problems/infix-to-postfix-1587115620/0/?page=1&category[]=Stack&sortBy=submissions
 
 //Function to return precedence of operators
@@ -39,7 +39,7 @@ function infixToPostfix(s) {
         const temp = st.pop();
         result += temp;
       }
-      st.pop();
+      st.pop(); //* removing openning bracket
     }
     //* If an operator is scanned
     else {

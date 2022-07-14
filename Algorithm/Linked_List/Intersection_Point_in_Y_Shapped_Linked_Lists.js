@@ -3,6 +3,7 @@
 // * https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
 
 // !=============Method 1 (Brute) force ==================
+// * For every node in list1, compare the node of other list. Return first match
 // * TC: O(m * n)
 // * SC: O(1)
 /*
@@ -25,6 +26,8 @@ function intersectPoint(head1, head2) {
 */
 
 // !==============Method 2(hash) ========
+// * Traverse list1 and store all the node.
+// * Againg traverse the list two. return the first match
 // * TC: O(m + n)
 // * SC: O(m)
 /*
@@ -46,7 +49,49 @@ function intersectPoint(head1, head2) {
 }
 */
 
-// !===============Method 3(Using the difference in node counts) ============
+// !======================== Method 3(Using two stacks) ====================
+// * dono list ko stack me add karenge..and piche se comaprare karenge. jab v match karega to usko temp variable me store ker ke nikal denge
+// * jaise first mis-match mila top of stack. return temp varibale
+
+// * TC: O(m + n)
+// * SC: O(m+n)
+/*
+function intersectPoint(head1, head2) {
+  const st1 = [];
+  const st2 = [];
+  let temp = null;
+
+  let curr1 = head1;
+  let curr2 = head2;
+
+  while (curr1) {
+    st1.push(curr1);
+    curr1 = curr1.next;
+  }
+
+  while (curr2) {
+    st1.push(curr2);
+    curr2 = curr2.next;
+  }
+
+  while (
+    st1.length !== 0 &&
+    st2.length !== 0 &&
+    st1[st1.length - 1] === st2[st2.length - 1]
+  ) {
+    temp = st1[st1.length - 1];
+    st1.pop();
+    st2.pop();
+  }
+
+  return temp;
+}
+*/
+
+// !===============Method 4(First repaeating node in the array) ===============
+// * store both list in a array and find first reapting node.
+
+// !===============Method 4(Using the difference in node counts) ============
 /*
 
 class Node {
@@ -69,6 +114,8 @@ function getCount(node) {
 
 //* list1 is longer that list 2
 function findIntersection(diff, head1, head2) {
+  // * head1 is longer list.
+  // * 
   while (diff > 0 && head1 !== null) {
     diff--;
     head1 = head1.next;

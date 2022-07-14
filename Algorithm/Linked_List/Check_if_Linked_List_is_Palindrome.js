@@ -44,7 +44,7 @@ function middle(node) {
 function isPalindrome(head) {
   if (!head) return true;
   let middleNode = middle(head);
-  let lastNode = reverseList(middleNode);
+  let last = reverseList(middleNode);
   let current = head;
   while (last !== null) {
     if (last.data !== current.data) return false;

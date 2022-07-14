@@ -1,3 +1,6 @@
+// !=========Links
+// * https://practice.geeksforgeeks.org/problems/smallest-number-on-left3403/0/?page=3&category[]=Stack&sortBy=submissions#
+
 // !========== Method 1 (Brute force) ================
 // * TC: O(n * n)
 /*

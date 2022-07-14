@@ -2,6 +2,7 @@
 // !===========Links ================
 // * https://practice.geeksforgeeks.org/problems/next-larger-element-1587115620/1/?page=1&category[]=Stack&sortBy=submissions
 // * https://www.geeksforgeeks.org/next-greater-element/
+// * https://practice.geeksforgeeks.org/problems/save-gotham1222/1/?page=3&category[]=Stack&sortBy=submissions#
 
 // !============Method 1(Brute force) ==================
 // * Time Complexity: O(N2)
@@ -65,4 +66,28 @@ function nextLargerElement(arr, n) {
   while (s.length !== 0) {
     ans[s.pop()] = -1;
   }
+}
+
+//! ===========================Method 3(Iterate from back) =============
+// * iterate kerte time jab v hame koi esa element milega jo bada hoga top of the stack se..to saare chote elements ko stacks se hata denge
+// *
+
+function nextLargerElement(arr, n) {
+  const st = [];
+  const ans = [];
+  for (let i = n - 1; i >= 0; i--) {
+    while (st.length !== 0 && arr[st[st.length - 1]] <= arr[i]) {
+      st.pop(); //* jab tak stack me chota element na mle element hatate jao
+    }
+
+    if (st.length === 0) {
+      ans[i] = -1;
+      st.push(arr[i]);
+    } else {
+      ans[i] = st[st.length - 1];
+      st.push(arr[i]);
+    }
+  }
+
+  return ans;
 }

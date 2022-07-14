@@ -78,6 +78,7 @@ function preOrder(root) {
     curr = st.pop();
     ans.push(curr.data);
 
+    // * since we want left first thats wht we are adding left after right
     if (curr.right) st.push(curr.right);
     if (curr.left) st.push(curr.left);
   }
@@ -91,4 +92,29 @@ function preOrder(root) {
 // * https://practice.geeksforgeeks.org/problems/postorder-traversal-iterative/1/?page=2&category[]=Stack&sortBy=submissions
 // * https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/
 
-function postOrder(node) {}
+function postOrder(node) {
+  if (!node) return;
+  const visited = new Set();
+  const st = [];
+  const ans = [];
+  let curr = node;
+
+  while (stack || curr) {
+    // * if node hai to usske pure left ko stack me daalte jao
+    if (curr) {
+      st.push(curr);
+      curr = curr.left;
+    } else {
+      curr = st.pop();
+      // * ager iska right side hai aur right side visited nhi hai to. st me add karo
+      if (curr.right && !visited.has(curr.right)) {
+        st.push(curr); //* ussi node ko fir se push ker do
+        curr - curr.right;
+      } else {
+        visited.add(curr);
+        ans.push(curr.data);
+        node = null;
+      }
+    }
+  }
+}

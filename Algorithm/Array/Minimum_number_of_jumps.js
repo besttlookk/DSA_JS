@@ -1,4 +1,5 @@
 // !===================== Minimum number of jumps to reach end =================
+//* #Greedy
 
 // ! ======================== Links ====================
 // * https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
