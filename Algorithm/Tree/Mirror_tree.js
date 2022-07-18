@@ -9,13 +9,20 @@
 
 // *  Worst-case Time complexity is O(n) and for space complexity, If we don’t consider the size of the recursive stack for function calls then O(1) otherwise O(h) where h is the height of the tree.
 
+// * (1)  Call Mirror for left-subtree    i.e., Mirror(left-subtree)
+// * (2)  Call Mirror for right-subtree  i.e., Mirror(right-subtree)
+// * (3)  Swap left and right subtrees.
+// temp = left-subtree
+// left-subtree = right-subtree
+// right-subtree = temp
 /*
 function mirror(node) {
   if (node === null) return node;
 
-  let left = mirror(node.left);
-  let right = mirror(node.right);
+  let left = mirror(node.left); //* get updated left tree
+  let right = mirror(node.right); //* get updated right tree
 
+  //* excahge
   node.right = left;
   node.left = right;
 
@@ -34,6 +41,7 @@ function mirror(node) {
   while (que.length) {
     const curr = que.shift();
 
+    // * Important part..before storing the left and right child in the queue. exchange them
     const temp = curr.left;
     curr.left = curr.right;
     curr.right = temp;

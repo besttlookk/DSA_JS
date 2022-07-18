@@ -34,6 +34,8 @@ function diameter(root) {
   let ldiameter = diameter(root.left);
   let rdiameter = diameter(root.right);
 
+  //* select among ==> current node diameter(1 + lheight + rHeight) | diameter for the left-tree | diameter for the right-tree
+  //* choose which ever is the max
   return Math.max(lheight + rheight + 1, ldiameter, rdiameter);
 }
 */
@@ -51,6 +53,8 @@ function height(node) {
 
   ans = Math.max(ans, 1 + lh + rh);
 
+  // * return karenge current node ka diameter
+  // * but har node ke liye hum check karenge ki kya wo max diameter se bada hai..aher hai to ans me update karenge
   return 1 + Math.max(lh, rh);
 }
 

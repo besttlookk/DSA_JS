@@ -14,6 +14,7 @@ function rightView(root) {
     for (let i = 1; i <= n; i++) {
       const temp = q.shift();
 
+      //* if last element of current level
       if (i === n) {
         res.push(temp.data);
       }

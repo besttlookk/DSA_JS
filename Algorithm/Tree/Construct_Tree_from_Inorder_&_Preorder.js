@@ -1,5 +1,9 @@
 // !====== Construct Tree from given Inorder and Preorder traversals
 
+// !==============Links
+// * https://practice.geeksforgeeks.org/problems/construct-tree-1/1
+// * https://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/
+
 // !===========Method 1 ===========
 
 // * Time Complexity: O(n^2). The worst case occurs when the tree is left-skewed. Example Preorder and Inorder traversals for worst-case are {A, B, C, D} and {D, C, B, A}.
@@ -46,8 +50,8 @@ function buildTreeUtil(preorder, n, inStart, inEnd, map) {
   //* Else find the index of this node in Inorder traversal
   let inIndex = map.get(tNode.data);
 
-  tNode.left = buildTreeUtil(preorder, inStart, inIndex - 1, map);
-  tNode.right = buildTreeUtil(preorder, inIndex + 1, inEnd, map);
+  tNode.left = buildTreeUtil(preorder, n, inStart, inIndex - 1, map);
+  tNode.right = buildTreeUtil(preorder, n, inIndex + 1, inEnd, map);
 
   return tNode;
 }

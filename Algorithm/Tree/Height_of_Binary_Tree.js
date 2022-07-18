@@ -40,3 +40,24 @@ function height(node) {
     }
   }
 }
+
+// !================Method 3(iterative + without null)
+
+function height(node) {
+  let q = [];
+  q.push(node);
+  let height = 0;
+
+  while (q.length !== 0) {
+    const size = q.length;
+
+    for (let i = 0; i < size; i++) {
+      node = q.shift();
+
+      node.left && q.push(node.left);
+      node.right && q.push(node.right);
+    }
+    height++;
+  }
+  return height;
+}

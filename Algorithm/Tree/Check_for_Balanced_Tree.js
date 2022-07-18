@@ -1,11 +1,20 @@
 // !========== Check for Balanced Tree
 // * A tree is height balanced if difference between heights of left and right subtrees is not more than one for all nodes of tree
 
-// !===============Links
-// * https://practice.geeksforgeeks.org/problems/valid-expression1025/0/?page=3&category[]=Stack&sortBy=submissions
+// !===============Links ============
+// * https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
+// * https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1
 // !============Method 1 ===============
+// * Time Complexity: O(n^2) in case of full binary tree.
+//* Auxiliary Space: O(n) space for call stack since using recursion
 function isBalanced(root) {
-  //your code here
+  if (root === null) return true;
+
+  return (
+    Math.abs(height(root.left) - height(root.right)) <= 1 &&
+    isBalanced(root.left) &&
+    isBalanced(root.right)
+  );
 }
 
 function height(node) {

@@ -70,7 +70,7 @@ function leftView(root) {
     for (let i = 1; i <= n; i++) {
       const tempNode = q.shift();
 
-      // *only print the first element
+      //*only print the first element
       if (i === 1) res.push(tempNode.data);
 
       //* Add left node to queue
