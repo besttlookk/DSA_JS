@@ -5,6 +5,8 @@
 // !===============Links ==============
 // * https://www.geeksforgeeks.org/check-if-a-given-binary-tree-is-sumtree/
 // * https://practice.geeksforgeeks.org/problems/sum-tree/0/?page=1&category[]=Tree&sortBy=submissions#
+// * https://practice.geeksforgeeks.org/problems/children-sum-parent/1?page=3&category[]=Tree&sortBy=submissions
+// * https://www.geeksforgeeks.org/check-for-children-sum-property-in-a-binary-tree/
 
 // !=============Method 1 ===================
 // * Get the sum of nodes in the left subtree and right subtree. Check if the sum calculated is equal to the root’s data.
@@ -54,21 +56,51 @@ function isLeaf(node) {
 
 function isSumTree(root) {
   let ls, rs;
-  if (root === null && isLeaf(root)) return true;
+  if (root === null || isLeaf(root)) return true;
 
   if (isSumTree(root.left) && isSumTree(root.right)) {
     //* Get the sum of nodes in left subtree
     if (node.left === null) ls = 0;
-    else if (isLeaf(root.node)) ls = root.left.data;
+    else if (isLeaf(root.left)) ls = root.left.data;
     else ls = 2 * root.left.data;
 
-    if (node.right === null) rs = 0;
-    else if (isLeaf(root.node)) rs = root.right.data;
+    if (root.right === null) rs = 0;
+    else if (isLeaf(root.right)) rs = root.right.data;
     else rs = 2 * root.right.data;
 
-    if (node.data === ls + rs) return true;
+    if (root.data === ls + rs) return true;
     else return false;
   }
 
   return false;
+}
+
+// !===============Method 3
+
+function isLeaf(node) {
+  if (node === null) return false;
+
+  if (node.left === null && node.right === null) return true;
+
+  return false;
+}
+
+function isSumProperty(node);
+{
+  let ls = 0,
+    rs = 0;
+  if (node === null || isLeaf(node)) return 1;
+  else {
+    if (node.left != null) ls = node.left.data;
+
+    if (node.right != null) rs = node.right.data;
+
+    if (
+      node.data == ls + rs &&
+      isSumProperty(node.left) != 0 &&
+      isSumProperty(node.right) != 0
+    )
+      return 1;
+    else return 0;
+  }
 }
