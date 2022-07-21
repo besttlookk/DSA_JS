@@ -2,18 +2,20 @@
 // * https://practice.geeksforgeeks.org/problems/topological-sort/1?page=1&category[]=Graph&sortBy=submissions
 
 // !============ Using DFS ==============
-
+// * ONLY APPLICABLE FOR DAG
 function topoSort(V, adj) {
   const visited = new Array(V).fill(false);
   const st = [];
   const res = [];
 
+  // * Normal dfs
   for (let i = 0; i < V; i++) {
     if (!visited[i]) {
       topoSortUtil(i, adj, visited, st);
     }
   }
 
+  // * copying element from stack to res
   while (st.length !== 0) {
     res.push(st.pop());
   }

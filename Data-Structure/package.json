@@ -1,0 +1,20 @@
+{
+  "name": "data-structure---my",
+  "version": "1.0.0",
+  "description": "",
+  "main": "DoublyLinkList.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/besttlookk/Data_Structure.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/besttlookk/Data_Structure/issues"
+  },
+  "homepage": "https://github.com/besttlookk/Data_Structure#readme"
+}
