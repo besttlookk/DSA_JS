@@ -5,7 +5,7 @@ function insertionSort(arr) {
     // another loop to go backword
     // now we have to find right place in the sorted sub-array
     for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
-      // move up
+      //*jab tak current value se bada hai move up
       arr[j + 1] = arr[j];
     }
     arr[j + 1] = currentVal;

@@ -3,6 +3,7 @@
 // !====links
 // * https://www.geeksforgeeks.org/shortest-path-for-directed-acyclic-graphs/
 
+// !=================Solution using topological sort   ==============
 // * We initialize distances to all vertices as infinite and distance to source as 0, then we find a topological sorting of the graph
 // * Topological Sorting of a graph represents a linear ordering of the graph
 // * . Once we have topological order (or linear representation), we one by one process all vertices in topological order. For every vertex being processed, we update distances of its adjacent using distance of current vertex.
@@ -27,35 +28,56 @@ class Graph {
     console.log(this.adj);
   }
 
-  shortestPath(s) {
+  topologicalSort() {
     const st = [];
     const visited = new Array(this.V).fill(false);
 
     for (let i = 0; i < this.V; i++) {
       if (!visited[i]) {
-        this.topologicalSort(s, st, visited);
+        this.dfs(i, st, visited);
       }
     }
 
     return st;
   }
 
-  topologicalSort(s, st, visited) {
+  dfs(s, st, visited) {
     visited[s] = true;
 
-    const list = this.adj.get(s);
-    const n = list.length;
+    const list = this.adj.get(s) || [];
 
-    console.log(list.length);
-
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < list.length; i++) {
       const neighbour = list[i];
       if (!visited[neighbour[0]]) {
-        this.topologicalSort(neighbour[0], st, visited);
+        this.dfs(neighbour[0], st, visited);
       }
     }
 
     st.push(s);
+  }
+
+  shortestPath(s) {
+    const dest = new Array(this.V).fill(Infinity);
+    dest[s] = 0;
+    const topoSt = this.topologicalSort();
+
+    while (topoSt.length) {
+      const top = topoSt.pop();
+
+      // * if distance array me value infinity nai ho to
+      if (dest[top] !== Infinity) {
+        const list = this.adj.get(top) || []; //* empty array are for those vertex for which there is no corresponding vertex
+
+        for (let neighbour of list) {
+          //* neighbour === [vertex, weight]
+          if (dest[top] + neighbour[1] < dest[neighbour[0]]) {
+            //* if abtak ka dist + is neighbour ka weight chota ho dest[neighbour] to update
+            dest[neighbour[0]] = dest[top] + neighbour[1];
+          }
+        }
+      }
+    }
+    return dest;
   }
 }
 

@@ -1,8 +1,9 @@
 // !==================Links ================
 // * https://practice.geeksforgeeks.org/problems/topological-sort/1?page=1&category[]=Graph&sortBy=submissions
 
-// !============ Using DFS ==============
+// !============ Using DFS + Stack ==============
 // * ONLY APPLICABLE FOR DAG
+// * TRICK: Before backtracking push ele in the stack
 function topoSort(V, adj) {
   const visited = new Array(V).fill(false);
   const st = [];
