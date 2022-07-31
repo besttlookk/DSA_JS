@@ -7,6 +7,7 @@
 // !==================Links
 // * https://www.geeksforgeeks.org/find-whether-it-is-possible-to-finish-all-tasks-or-not-from-given-dependencies/
 // * https://practice.geeksforgeeks.org/problems/prerequisite-tasks/1?page=2&category[]=Graph&sortBy=submissions
+// * https://practice.geeksforgeeks.org/problems/course-schedule/1?page=3&category[]=Graph&sortBy=submissions
 
 // !====================Method 1(cycle detection using DFS)
 function isPossible(prerequisites, n, p) {

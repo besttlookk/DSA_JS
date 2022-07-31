@@ -2,6 +2,7 @@
 
 // !================Links
 // * https://leetcode.com/problems/clone-graph/
+// * https://practice.geeksforgeeks.org/problems/clone-graph/1?page=2&category[]=Graph&curated[]=7&sortBy=submissions
 
 /**
  * // Definition for a Node.
@@ -20,7 +21,7 @@ var cloneGraph = function (node) {
 
   const visited = new Array(1000).fill(null);
   const cloneNode = new Node(node.val);
-  visited[node.val] = cloneNode;
+  visited[node.val] = cloneNode; //* In place of true we put clone node
 
   // * iterate for all the neighbours
   for (let curr of node.neighbors) {
@@ -52,3 +53,30 @@ function dfs(curr, currClone, visited) {
     }
   }
 }
+
+// !====================MMethod 2(Using Two Clone) ================
+var cloneGraph = function (node) {
+  const que1 = [];
+  const que2 = [];
+
+  que1.push(node);
+  cloneNode = new Node(node.val);
+  que2.push(cloneNode);
+
+  while (que1.length) {
+    const front1 = que1.shift();
+    front1.val = -1;
+    const front2 = que2.shift();
+
+    for (let ele in front1.neighbors) {
+      if (ele.val !== -1) {
+        que1.push(ele);
+        eleClone = new Node(ele.val);
+        front2.neighbors.push(eleClone);
+        que2.push(eleClone);
+      }
+    }
+  }
+
+  return cloneNode;
+};

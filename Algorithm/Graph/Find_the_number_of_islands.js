@@ -21,7 +21,7 @@
 
 // *  Time complexity: O(ROW x COL)
 // *  Auxiliary Space: O(1), as we are not using any extra space.
-/*
+
 function numIslands(grid) {
   const row = grid.length;
   if (!row) return;
@@ -59,10 +59,10 @@ function markCurrentIsland(grid, i, j, row, col) {
   markCurrentIsland(grid, i + 1, j - 1, row, col); //* DOWN LEFT
   markCurrentIsland(grid, i + 1, j + 1, row, col); //* DOWN RIGHT
 }
-*/
-// !======================Method 2(Disjoint Set) ===================
-//  *  The idea is to consider all 1 values as individual sets. Traverse the matrix and do a union of all adjacent 1 vertices.
 
+// !======================Method 2(Disjoint Set)INCOMPLETE ===================
+//  *  The idea is to consider all 1 values as individual sets. Traverse the matrix and do a union of all adjacent 1 vertices.
+/*
 class DisjointSet {
   constructor(n) {
     this.parent = new Array(n);
@@ -114,6 +114,52 @@ function numIslands(grid) {
     for (let j = 0; j < col; j++) {}
   }
 }
+*/
+// !=============================Unit Area of largest region of 1's =================
+
+// !====================Links
+// * https://practice.geeksforgeeks.org/problems/length-of-largest-region-of-1s-1587115620/1?page=1&category[]=Graph&sortBy=submissions
+
+let count = 0;
+function findMaxArea(grid) {
+  const row = grid.length;
+  if (row === 0) return;
+  const col = grid[0].length;
+  let max = -Infinity;
+
+  for (let i = 0; i < row; i++) {
+    for (let j = 0; j < col; j++) {
+      if (grid[i][j] === 1) {
+        count = 0;
+        markNeighbours(i, j, row, col, grid);
+
+        max = Math.max(max, count);
+      }
+    }
+  }
+
+  return max;
+}
+
+function markNeighbours(i, j, row, col, grid) {
+  if (i < 0 || i >= row || j < 0 || j >= col || grid[i][j] !== 1) return;
+
+  grid[i][j] = 2;
+
+  count += 1;
+
+  markNeighbours(i, j + 1, row, col, grid); //RIGHT
+  markNeighbours(i, j - 1, row, col, grid); // LEFT
+  markNeighbours(i + 1, j, row, col, grid); // DOWN
+  markNeighbours(i - 1, j, row, col, grid); // UP
+  markNeighbours(i - 1, j + 1, row, col, grid); // UP RIGHT
+  markNeighbours(i - 1, j - 1, row, col, grid); // UP LEFT
+  markNeighbours(i + 1, j - 1, row, col, grid); // DOWN LEFT
+  markNeighbours(i + 1, j + 1, row, col, grid); // DOWN RIGHT
+
+  return count;
+}
+
 // !=================Example 1
 // const grid = [
 //   ["0", "1", "1", "1", "0", "0", "0"],
@@ -122,16 +168,24 @@ function numIslands(grid) {
 
 // !==========example 2
 
+// const grid = [
+//   ["0", "1", "0"],
+//   ["0", "1", "0"],
+//   ["0", "0", "0"],
+//   ["1", "1", "0"],
+//   ["1", "0", "1"],
+//   ["0", "1", "1"],
+//   ["1", "1", "1"],
+//   ["0", "1", "1"],
+//   ["1", "0", "1"],
+// ];
+
+// console.log(numIslands(grid));
+
 const grid = [
-  ["0", "1", "0"],
-  ["0", "1", "0"],
-  ["0", "0", "0"],
-  ["1", "1", "0"],
-  ["1", "0", "1"],
-  ["0", "1", "1"],
-  ["1", "1", "1"],
-  ["0", "1", "1"],
-  ["1", "0", "1"],
+  [1, 1, 1, 0],
+  [0, 0, 1, 0],
+  [0, 0, 0, 1],
 ];
 
-console.log(numIslands(grid));
+console.log(findMaxArea(grid));

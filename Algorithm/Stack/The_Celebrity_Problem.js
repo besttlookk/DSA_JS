@@ -1,8 +1,15 @@
-// !========= The Celebrity Problem
+// !========= The Celebrity Problem or Find the Town Judge======================
+
+/**
+ * @param {number[][]} M
+ * @param {number} n
+ * @returns {number}
+ */
 
 // !=====Links ============
 // * https://www.geeksforgeeks.org/the-celebrity-problem/
 // * https://practice.geeksforgeeks.org/problems/the-celebrity-problem/1/?page=1&category[]=Stack&sortBy=submissions
+// * https://leetcode.com/problems/find-the-town-judge/
 
 // !==============Method 1 ===============
 
@@ -31,7 +38,29 @@ function celebrity(M, n) {
 }
 */
 
-// !===================Method 2( elimination technique)=========
+// ! ================Method 2(variation of about method ) ========
+// * indegree - outdegree = n - 1
+
+function celebrity(M, n) {
+  const degree = Array(n).fill(0);
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      if (M[i][j] === 1) {
+        // * i ===> j
+        degree[i] -= 1; //
+        degree[j] += 1;
+      }
+    }
+  }
+
+  for (let i = 0; i < n; i++) {
+    if (degree[i] === n - 1) return i;
+  }
+
+  return -1;
+}
+// !===================Method 3( elimination technique)=========
 // * If A knows B, then A can’t be a celebrity. Discard A, and B may be celebrity.
 // * If A doesn’t know B, then B can’t be a celebrity. Discard B, and A may be celebrity.
 // *Repeat above two steps till there is only one person.
