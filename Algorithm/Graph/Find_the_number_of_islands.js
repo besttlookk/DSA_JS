@@ -14,6 +14,7 @@
 // * https://www.geeksforgeeks.org/find-number-of-islands/
 // * https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1?page=1&category[]=Graph&sortBy=submissions
 // * https://www.geeksforgeeks.org/find-the-number-of-islands-set-2-using-disjoint-set/
+// * https://practice.geeksforgeeks.org/problems/x-total-shapes3617/1?page=2&category[]=Graph&sortBy=submissions
 
 // !===================Method(using DFS) : without creating visited matrix:============
 // * The problem can be easily solved by applying DFS() on each component.

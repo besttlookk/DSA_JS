@@ -4,7 +4,11 @@
 // ! ===================Links
 // * https://practice.geeksforgeeks.org/problems/find-duplicates-in-an-array/1/?page=1&curated[]=2&sortBy=submissions
 
-// !============Method 1(Using hashmap)==============
+// !============Method 1(Using hashmap):==============
+
+// * TC:O(n)
+// * SC: O(n)
+/*
 function duplicates(a, n) {
   const hashMap = {};
   const result = [];
@@ -18,4 +22,19 @@ function duplicates(a, n) {
   return result.length ? result : [-1];
 }
 
+*/
+
+// !====================Method 2(Using XOR)
+function duplicates(a, n) {
+  const hashMap = {};
+  const result = [];
+
+  for (let i = 0; i < n; i++) {
+    hashMap[a[i]] = hashMap[a[i]] + 1 || 1;
+  }
+  for (let key in hashMap) {
+    if (hashMap[key] > 1) result.push(+key);
+  }
+  return result.length ? result : [-1];
+}
 console.log(duplicates([0, 3, 1, 2], 5));

@@ -8,6 +8,7 @@
 // !==============Links
 // * https://practice.geeksforgeeks.org/problems/rotten-oranges2536/1?page=1&category[]=Graph&sortBy=submissions
 // * https://www.geeksforgeeks.org/minimum-time-required-so-that-all-oranges-become-rotten/
+// * https://practice.geeksforgeeks.org/problems/269f61832b146dd5e6d89b4ca18cbd2a2654ebbe/1?page=2&category[]=Graph&sortBy=submissions
 
 // !================Naive Solution:==============
 // * Traverse through all oranges in multiple rounds. In every round, rot the oranges to the adjacent position of oranges which were rotten in the last round.

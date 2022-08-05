@@ -106,6 +106,7 @@ let findKthLargest = function (nums, k) {
     if (hp.heap.length > k) {
       hp.remove();
     }
+    //  Another condition we can check is: if new element > hp.top: extractMin && then insert new ele
   }
 
   return hp.peek();
@@ -143,10 +144,8 @@ function partition(arr, low, high) {
 let findKthLargest = function (nums, k, low = 0, high = nums.length - 1) {
   let pi = partition(nums, low, high);
 
-  if (pi === nums.length - k)
-    return nums[
-      pi
-    ]; //* place of kth largest element in sorted arr is [nums.length - k]
+  if (pi === nums.length - k) return nums[pi];
+  //* place of kth largest element in sorted arr is [nums.length - k]
   // * if partition value is less than kth position, search right side of the array.
   else if (pi < nums.length - k) return findKthLargest(nums, k, pi + 1, high);
   // * if partition value is more than kth position, search left side of the array.

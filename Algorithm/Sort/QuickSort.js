@@ -1,3 +1,6 @@
+// !=========================Links
+// * https://practice.geeksforgeeks.org/problems/quick-sort/1
+
 // !=============Method 1 =====================
 /*
 function partition(items, left, right) {
@@ -75,6 +78,8 @@ function quickSort(n, arr, left = 0, right = n - 1) {
   if (left < right) {
     const pi = partition(arr, left, right);
 
+    console.log({ pi });
+    console.log({ arr });
     quickSort(n, arr, left, pi - 1);
     quickSort(n, arr, pi + 1, right);
   }

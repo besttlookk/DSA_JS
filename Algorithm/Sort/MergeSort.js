@@ -1,3 +1,7 @@
+// !===========================Links
+// * https://practice.geeksforgeeks.org/problems/merge-and-sort5821/1?page=1&sortBy=submissions&searchQuery=merge
+// * https://practice.geeksforgeeks.org/problems/merge-sort/1?page=1&sortBy=submissions&searchQuery=merge
+
 //! ===================== Method 1 ====================
 /*
 function merge(array1, array2) {
@@ -44,6 +48,7 @@ function merge(arr, left, mid, right) {
   const n1 = mid - left + 1;
   const n2 = right - mid;
 
+  // * Copy element from
   for (let i = 0; i < n1; i++) {
     leftArr[i] = arr[left + i];
   }

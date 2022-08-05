@@ -7,7 +7,7 @@ function radixSort(arr) {
     const bucket = Array.from({ length: 10 }, () => []);
     // ! Step 3: loop over each number and find the digit at ith place in each number
     for (let j = 0; j < arr.length; j++) {
-      const digit = getDigit(arr[j], i);
+      const digit = getDigit(arr[j], i); //* each time we are getting the digit of ith place
 
       // ! Step 4: Add numbers in the bucket with respective digit as key
       bucket[digit].push(arr[j]);

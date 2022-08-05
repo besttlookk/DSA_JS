@@ -8,6 +8,7 @@
 // !===========Links
 // * https://practice.geeksforgeeks.org/problems/steps-by-knight5927/1?page=1&category[]=Graph&sortBy=submissions
 // * https://www.geeksforgeeks.org/minimum-steps-reach-target-knight/
+// * https://practice.geeksforgeeks.org/problems/knight-walk4521/1?page=3&category[]=Graph&sortBy=submissions
 
 // !=================Solution(BFS)
 // * This problem can be seen as shortest path in unweighted graph.
@@ -135,6 +136,8 @@ function minStepToReachTarget(KnightPos, TargetPos, N) {
       if (isSafe(xn, yn, N, visited)) {
         que.push([xn, yn, steps + 1]);
         visited[xn][yn] = true;
+
+        if (xn === xt && yn === yt) return steps + 1;
       }
     }
   }

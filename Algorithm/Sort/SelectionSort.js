@@ -7,6 +7,9 @@ Remaining subarray which is unsorted.
 In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray. 
 
  */
+
+// !===============Accumulating smallest at first =================
+/*
 function selectionSort(array) {
   for (let i = 0; i < array.length; i++) {
     let indexOfLowest = i;
@@ -21,33 +24,47 @@ function selectionSort(array) {
 
   return array;
 }
+*/
 
+// !===================Accumulating largest at last===============
+function selectionSort(array) {
+  for (let i = n - 1; i > 0; i--) {
+    let indexOfLargest = 0;
+    for (let j = 1; j < i + 1; j++) {
+      if (array[indexOfLargest] < array[j]) indexOfLargest = j;
+    }
+
+    [array[i], array[indexOfLargest]] = [array[indexOfLargest], array[i]];
+  }
+
+  return array;
+}
 // console.log(selectionSort([10, 29, 12, 14, 0]));
 
-var mergeArr = function (nums1, m, nums2, n) {
-  let i = 0;
-  let j = 0;
+// var mergeArr = function (nums1, m, nums2, n) {
+//   let i = 0;
+//   let j = 0;
 
-  while (i < m && j < n) {
-    if (nums1[i] > nums2[j]) {
-      console.log(nums1[i], nums2[j]);
-      const temp = nums1[i];
-      nums1[i] = nums2[j];
-      nums2[j] = temp;
+//   while (i < m && j < n) {
+//     if (nums1[i] > nums2[j]) {
+//       console.log(nums1[i], nums2[j]);
+//       const temp = nums1[i];
+//       nums1[i] = nums2[j];
+//       nums2[j] = temp;
 
-      i++;
-    } else if (nums1[i] < nums2[j]) {
-      i++;
-    } else {
-      const temp = nums1[1 + 1];
-      nums1[i + 1] = nums2[j];
-      nums2[j] = temp;
-      i += 2;
-    }
-  }
-  nums1.splice(m, n, ...nums2);
+//       i++;
+//     } else if (nums1[i] < nums2[j]) {
+//       i++;
+//     } else {
+//       const temp = nums1[1 + 1];
+//       nums1[i + 1] = nums2[j];
+//       nums2[j] = temp;
+//       i += 2;
+//     }
+//   }
+//   nums1.splice(m, n, ...nums2);
 
-  return nums1;
-};
+//   return nums1;
+// };
 
 console.log(mergeArr([4, 0, 0, 0, 0, 0], 1, [1, 2, 3, 5, 6], 5));
