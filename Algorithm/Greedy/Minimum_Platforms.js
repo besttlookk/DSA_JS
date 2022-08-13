@@ -32,7 +32,7 @@ function findPlatform(arr, dep, n) {
 
 */
 
-// !===================Method 2(Efficient approach):Twp pointer approach  ============
+// !===================Method 2(Efficient approach):Sort + Twp pointer approach  ============
 // * The idea is to consider all events in sorted order. Once the events are in sorted order, trace the number of trains at any time keeping track of trains that have arrived, but not departed.
 
 // * Time Complexity: O(N * log N), One traversal O(n) of both the array is needed after sorting O(N * log N).

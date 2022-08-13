@@ -5,8 +5,9 @@
 // * https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
 // * https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1/?page=1&curated[]=2&sortBy=submissions
 
-// !==========Method 1 (Naive Recursive Approach. )
-//* A naive approach is to start from the first element and recursively call for all the elements reachable from first element. The minimum number of jumps to reach end from first can be calculated using minimum number of jumps needed to reach end from the elements reachable from first.
+// !==========Method 1 (Naive Recursive Approach. ) ==================
+//* A naive approach is to start from the first element and recursively call for all the elements reachable from first element.
+// * The minimum number of jumps to reach end from first can be calculated using minimum number of jumps needed to reach end from the elements reachable from first.
 
 // * Time complexity: O(n^n).
 // * Auxiliary Space: O(1).
@@ -16,11 +17,8 @@ function minJumps(arr, n) {
   // destination are same
   if (n == 1) return 0;
 
-  //* Traverse through all the points
-  //* reachable from arr[l]
-  //* Recursively, get the minimum number
-  //* of jumps needed to reach arr[h] from
-  //* these reachable points
+  //* Traverse through all the points reachable from arr[l] 
+  //* Recursively, get the minimum number of jumps needed to reach arr[h] from these reachable points
   let res = Number.MAX_VALUE;
   for (let i = n - 2; i >= 0; i--) {
     if (i + arr[i] >= n - 1) {

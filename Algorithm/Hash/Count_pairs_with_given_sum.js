@@ -19,7 +19,7 @@ function getPairsCount(arr, n, k) {
 }
 */
 
-// !==========Method 2 ===============
+// !================Method 2(Hashing) ===============
 //* Time Complexity: O(n), to iterate over the array
 //* Auxiliary Space: O(n), to make a map of size n
 function getPairsCount(arr, n, k) {
@@ -31,6 +31,7 @@ function getPairsCount(arr, n, k) {
       count += map.get(k - arr[i]);
     }
 
+    // * Update the map freq
     if (map.has(arr[i])) {
       map.set(arr[i], map.get(arr[i]) + 1);
     } else {
@@ -40,4 +41,4 @@ function getPairsCount(arr, n, k) {
 
   return count;
 }
-console.log(getPairsCount([1, 5, 7, 1], 4, 6));
+console.log(getPairsCount([1, 5, 7, 1], 4, 6)); // 2

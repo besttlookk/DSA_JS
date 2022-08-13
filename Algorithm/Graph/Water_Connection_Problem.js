@@ -1,5 +1,5 @@
 // !===============Water Connection Problem============
-
+// * #Greedy
 // !===================Links =====================
 // * https://www.geeksforgeeks.org/water-connection-problem/
 // * https://practice.geeksforgeeks.org/problems/water-connection-problem5822/1?page=1&category[]=Graph&curated[]=7&sortBy=submissions
