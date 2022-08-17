@@ -136,4 +136,25 @@ function knapSack(W, wt, val, n) {
 
   return dp[n][W];
 }
+
+// !=====================Method 4:  We used the same approach but with optimized space complexity================
+// * Time Complexity: O(N*W). As redundant calculations of states are avoided.
+
+// *Auxiliary Space: O(W) As we are using 1-D array instead of 2-D array.
+
+function knapSack(W, wt, val, n) {
+  // making and initializing dp array
+  let dp = Array(W + 1).fill(0);
+
+  for (let i = 1; i < n + 1; i++) {
+    for (let j = W; j >= 0; j--) {
+      if (wt[i - 1] <= j)
+        // finding the maximum value
+        dp[j] = Math.max(dp[j], dp[j - wt[i - 1]] + val[i - 1]);
+    }
+  }
+
+  console.log({ dp });
+  return dp[W];
+}
 console.log(knapSack(4, [4, 5, 1], [1, 2, 3], 3));

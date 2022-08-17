@@ -16,13 +16,28 @@
 // * https://leetcode.com/problems/coin-change-2/submissions/
 
 // !==============================Recursion ======================
+// * m is total no. of coins
+// * n is total sum
+
+// * Time Complexity: O(2n)
+// * Space Complexity: O(target) – Auxiliary stack space
+// * It should be noted that the below function computes the same subproblems again and again.
 function count(S, m, n) {
+  //* If n is 0 then there is 1 solution
+  //* (do not include any coin)
   if (n === 0) return 1;
+  // If n is less than 0 then no
+  // solution exists
+  if (n < 0) return 0;
+
+  // If there are no coins and n
+  // is greater than 0, then no solution exist
   if (m === 0) return 0;
 
   if (S[m - 1] > n) return count(S, m - 1, n);
+  //* IF total sum requried is more that last coin of array. Do not include it
   else {
-    return count(S, m - 1, n) + count(S, m, n - S[m - 1]);
+    return count(S, m - 1, n) + count(S, m, n - S[m - 1]); //* Two choice: either include it or exclude it
   }
 }
 
@@ -81,6 +96,33 @@ function count(S, m, n) {
   }
 
   return dp[m][n];
+}
+
+// !======================Method 4(Simplified version of method 3)
+function count(S, m, n) {
+  // table[i] will be storing the number of solutions
+  // for value i. We need n+1 rows as the table is
+  // constructed in bottom up manner using the base
+
+  //* case (n = 0)
+  // Initialize all table values as 0
+  //O(n)
+
+  let table = Array(n + 1).fill(0);
+
+  //* Base case (If given value is 0)
+  table[0] = 1;
+
+  //* Pick all coins one by one and update the table
+  //* values after the index greater than or equal to
+  //* the value of the picked coin
+
+  for (i = 0; i < m; i++) {
+    for (j = S[i]; j <= n; j++) table[j] += table[j - S[i]];
+    console.log({ table });
+  }
+
+  return table[n];
 }
 // console.log(count([1, 2, 3], 3, 4));
 console.log(count([2, 5, 3, 6], 4, 10));

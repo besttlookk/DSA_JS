@@ -360,12 +360,43 @@ for (int i = 1; i< =n; i++)
 3. Shortest Common Super sequence
 4. Print SCS
 5. minimum number of insettion and deletion a--> b
-6. Largest repeating subsequence
-7. Length of largest subsequence of "a" which is a substring of "b"
-8. Subsequence pattern matching.
-9. Count how many times "a" appear as subsequence in "b"
-10. Largest Palindromic subsequence
-11. largest Palindromin SubString
-12. Count of Palindromic Substring.
-13. Min no. of deletion in a string to make it a Palindrome
-14. Min no of insertion in a string to make it a Palindrome
+6. Edit Distance(Given two strings str1 and str2 and below operations that can be performed on str1. Find minimum number of edits (operations) required to convert ‘str1’ into ‘str2’. )
+7. Largest repeating subsequence
+8. Length of largest subsequence of "a" which is a substring of "b"
+9. Subsequence pattern matching.
+10. Count how many times "a" appear as subsequence in "b"
+11. Largest Palindromic subsequence
+12. largest Palindromin SubString
+13. Count of Palindromic Substring.
+14. Min no. of deletion in a string to make it a Palindrome
+15. Min no of insertion in a string to make it a Palindrome
+
+## Matrix Chain Multiplication (MCM)
+
+1. MCM
+2. Printing MCM
+3. Evaluate exp to true/ false
+4. Min/ max value of an exp
+5. Palindrome Partinioning
+6. Egg Dropping Problem
+
+## DP on Trees:
+
+1. General syntax
+2. How DP can be applied on trees(Identification)
+3. Diameter of BT
+4. Maximum path sun from any node to any node
+5. Maximum path sum from leaf to leaf
+6. Diameter of N-ary tree
+
+## Catalan Number
+
+1. No of BSTs
+2. Unlabeled tree
+3. N Parenthesis(With and without letters)
+4. Dyck Words
+5. Mountain range
+6. Path on grid
+7. Convex Polygon
+8. Connect Disjoint Chords
+9. Ways of tringulation

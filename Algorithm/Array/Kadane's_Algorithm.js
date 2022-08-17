@@ -34,13 +34,13 @@ function maxSubarraySum(arr, N) {
 // * And keep track of maximum sum contiguous segment among all positive segments (max_so_far is used for this).
 // * Each time we get a positive sum compare it with max_so_far and update max_so_far if it is greater than max_so_far
 
-//*  The above algorithm only works if and only if at least one positive number should be present otherwise it does not work i.e if an Array contains all negative numbers it doesn’t work.
+//*  The below algorithm only works if and only if at least one positive number should be present otherwise it does not work i.e if an Array contains all negative numbers it doesn’t work.
 
 // * TC: O(n)
 /*
 function maxSubarraySum(arr, N) {
   let maxSoFar = -Infinity;
-  let currentSum = 0;
+  let currentSum = 0;  //* max_ending_here
 
   for (let i = 0; i < N; i++) {
     currentSum += arr[i];
@@ -59,19 +59,7 @@ function maxSubarraySum(arr, N) {
 }
 */
 // ! ===================MEthod 3 (If we have to get index )=====================
-/*
-function maxSubarraySum(arr, N) {
-  let maxSoFar = arr[0];
-  let currentSum = arr[0];
 
-  for (let i = 1; i < N; i++) {
-    currentSum = Math.max(arr[i], currentSum + arr[i]);
-    maxSoFar = Math.max(currentSum, maxSoFar);
-  }
-
-  return maxSoFar;
-}
-*/
 // * To print the subarray with the maximum sum, we maintain indices whenever we get the maximum sum.
 
 function maxSubarraySum(arr, N) {
@@ -97,6 +85,21 @@ function maxSubarraySum(arr, N) {
   }
 
   return [start, end];
+}
+
+// !=======================Method 4(Dynamic Programming)====================
+// *  The implementation handles the case when all numbers in the array are negative.
+
+function maxSubarraySum(arr, N) {
+  let maxSoFar = arr[0];
+  let currentSum = arr[0];
+
+  for (let i = 1; i < N; i++) {
+    currentSum = Math.max(arr[i], currentSum + arr[i]);
+    maxSoFar = Math.max(currentSum, maxSoFar);
+  }
+
+  return maxSoFar;
 }
 
 console.log(maxSubarraySum([-2, -3, 4, -1, -2, 1, 5, -3], 8));
