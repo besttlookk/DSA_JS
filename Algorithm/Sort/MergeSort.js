@@ -41,8 +41,11 @@ function mergeSort(arr) {
 
 */
 
-// !======================Method 2 =================
+// !========================================Method 2 =================
+/*
 function merge(arr, left, mid, right) {
+  if (arr[mid] <= arr[mid + 1]) return; //* already sorted
+
   const leftArr = [];
   const rightArr = [];
   const n1 = mid - left + 1;
@@ -62,13 +65,15 @@ function merge(arr, left, mid, right) {
   let k = left;
 
   while (i < n1 && j < n2) {
-    if (leftArr[i] <= rightArr[j]) {
-      // * No swap
-      arr[k++] = leftArr[i++];
-    } else {
-      // * YES Swap
-      arr[k++] = rightArr[j++];
-    }
+    // if (leftArr[i] <= rightArr[j]) {
+    //   // * No swap
+    //   arr[k++] = leftArr[i++];
+    // } else {
+    //   // * YES Swap
+    //   arr[k++] = rightArr[j++];
+    // }
+
+    arr[k++] = leftArr[i] <= rightArr[j] ? leftArr[i++] : rightArr[j++];
   }
 
   while (i < n1) {
@@ -78,6 +83,30 @@ function merge(arr, left, mid, right) {
   while (j < n2) {
     arr[k++] = rightArr[j++];
   }
+}
+*/
+// * OPTIMIZED MERGE
+function merge(arr, left, mid, right) {
+  if (arr[mid] <= arr[mid + 1]) return; //* already sorted
+
+  let i = left;
+  let j = mid + 1;
+  let tempIdx = 0;
+
+  const temp = new Array(right - left + 1);
+
+  while (i <= mid && j <= right) {
+    temp[tempIdx++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
+  }
+
+  arraymove(arr, i, arr, left + tempIdx, mid - i + 1);
+
+  arraymove(temp, 0, arr, left, tempIdx);
+}
+
+function arraymove(srcArr, srcPos, desArr, desPos, length) {
+  const items = srcArr.slice(srcPos, srcPos + length);
+  desArr.splice(desPos, length, ...items);
 }
 
 function mergeSort(arr, left = 0, right = arr.length - 1) {
@@ -93,6 +122,8 @@ function mergeSort(arr, left = 0, right = arr.length - 1) {
     merge(arr, left, mid, right);
   }
 }
-const arr = [2, 5, 7, 2, 10, 45, 23];
+// const arr = [2, 5, 7, 2, 10, 45, 23];
+// const arr = [2, 9, 6, 5];
+const arr = [2, 9, 5, 6, 10, 1, 5];
 mergeSort(arr);
 console.log(arr);

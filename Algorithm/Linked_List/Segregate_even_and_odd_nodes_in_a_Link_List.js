@@ -41,3 +41,30 @@ function divide(N, head) {
   tailOdd.next = null;
   return headEven;
 }
+
+// !=================Optimized above code
+
+function divide(N, head) {
+  const evenDummy = new Node(-1);
+  const oddDummy = new Node(-1);
+  let evenTail = evenDummy;
+  let oddTail = oddDummy;
+
+  let curr = head;
+
+  while (curr != null) {
+    if (curr.data % 2 == 0) {
+      evenTail.next = curr;
+      evenTail = evenTail.next;
+    } else {
+      oddTail.next = curr;
+      oddTail = oddTail.next;
+    }
+    curr = curr.next;
+  }
+
+  evenTail.next = oddDummy.next;
+  oddTail.next = null;
+
+  return evenDummy.next;
+}

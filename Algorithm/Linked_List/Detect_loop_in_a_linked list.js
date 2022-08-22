@@ -1,8 +1,9 @@
+// ! ==========================Floyd Cycle detection method
 // !================Links
 //* https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
 // * https://practice.geeksforgeeks.org/problems/detect-loop-in-linked-list/1
 
-// !=========Solution 1: Hashing Approach:
+// !===============================Solution 1: Hashing Approach:
 // * Traverse the list one by one and keep putting the node addresses in a Hash Table. At any point, if NULL is reached then return false, and if the next of the current nodes points to any of the previously stored nodes in  Hash then return true.
 
 // * Time complexity: O(n). Only one traversal of the loop is needed.

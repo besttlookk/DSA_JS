@@ -10,6 +10,10 @@
 // * https://practice.geeksforgeeks.org/problems/merge-k-sorted-arrays/1?page=1&sortBy=submissions&searchQuery=merge
 
 // !==========================Method 1 (Using Heap) ==============
+// * The process must start with creating a MinHeap and inserting the first element of all the k Linked Lists
+// * Remove the root element of Minheap and put it in the output Linked List and insert the next element from the Linked List of removed element.
+// * To get the result the step must continue until there is no element left in the MinHeap.
+// * Note: Mapping the elements of a heap into an array is trivial, If a node is stored at index k, then its left child is stored at index 2k + 1 and its right child at index 2k + 2.
 class MinHeap {
   constructor() {
     this.size = 0;

@@ -11,11 +11,13 @@ class Node {
 // * https://practice.geeksforgeeks.org/problems/clone-a-linked-list-with-next-and-random-pointer/1
 // * https://www.geeksforgeeks.org/a-linked-list-with-next-and-arbit-pointer/
 // * https://www.geeksforgeeks.org/clone-linked-list-next-arbit-pointer-set-2
+// * https://www.geeksforgeeks.org/clone-linked-list-next-random-pointer-o1-space/
 
-// !=================Method 1(Hashing)==========
+// !===========================================Method 1(Hashing)===================================
 // * Traverse the original linked list and make a copy in terms of data.
 //*  Make a hash map of key value pair with original linked list node and copied linked list node.
 //*  Traverse the original linked list again and using the hash map adjust the next and random reference of cloned linked list nodes.
+// * Two traversal required
 /*
 function copyList(head) {
   let originalCurr = head;
@@ -46,6 +48,8 @@ function copyList(head) {
 */
 
 // !==================Method 2 (without extra space) =========================
+// * This requies three traversal.
+
 function copyList(head) {
   let originalCurr = head;
   let cloneCurr = null;
@@ -75,6 +79,8 @@ function copyList(head) {
   originalCurr = head;
   const dummy = new Node(0);
   const copy = dummy;
+
+  // * removing both pointers for original node one by one
   while (originalCurr) {
     const next = originalCurr.next.next;
     copy.next = originalCurr.next;

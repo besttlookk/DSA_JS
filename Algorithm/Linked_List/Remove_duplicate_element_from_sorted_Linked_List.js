@@ -3,8 +3,13 @@
 // * https://www.geeksforgeeks.org/remove-duplicates-from-a-sorted-linked-list/
 
 // * The nodes are arranged in a sorted way.
+// !=============================Remove duplicate element from sorted Linked List==============================
 
-// !=========================Method 1 ==============
+// !=========================== Links ======================================
+// * https://practice.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1
+// * https://www.geeksforgeeks.org/remove-duplicates-from-a-sorted-linked-list/
+
+// !=========================Method 1 ==================
 // * Traverse the list from the head (or start) node. While traversing, compare each node with its next node.
 // * If the data of the next node is the same as the current node then delete the next node. Before we delete a node, we need to store the next pointer of the node
 
@@ -29,3 +34,21 @@ function removeDuplicates(head) {
 
   return head;
 }
+
+// !=====================Method 2=======================
+function removeDuplicates(head) {
+  let current = head;
+
+  while (current !== null && current.next !== null) {
+    if (current.data == current.next.data) {
+      current.next = current.next.next;
+    } else {
+      current = current.next;
+    }
+  }
+
+  return head;
+}
+
+// !===========================Method 3 (Recursive Approach)====
+function removeDuplicates(head) {}

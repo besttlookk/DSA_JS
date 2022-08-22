@@ -1,10 +1,14 @@
 // !========== Split a Circular Linked List into two halves
+// * 1) Store the mid and last pointers of the circular linked list using tortoise and hare algorithm.
+// * 2) Make the second half circular.
+// * 3) Make the first half circular.
+// * 4) Set head (or start) pointers of the two linked lists.
 
-// !====================Links
+// !===================================Links===========================
 // * https://www.geeksforgeeks.org/split-a-circular-linked-list-into-two-halves/
 // * https://practice.geeksforgeeks.org/problems/split-a-circular-linked-list-into-two-halves/1/#
 
-// !==========Method 1===================
+// !==================================Method 1===================
 function splitList(node) {
   let slow = node;
   let fast = node;

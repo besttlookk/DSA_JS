@@ -1,4 +1,4 @@
-// !================= Merge k sorted linked lists
+// !=====================================Merge k sorted linked lists
 /**
  * @param {Node[]} arr
  * @param {number} N

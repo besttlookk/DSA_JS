@@ -74,7 +74,7 @@ function reverseList(head) {
   return rest;
 }
 */
-// !===============Method 4 (Sack) ==================
+// !===============Method 4 (Stack) ==================
 
 function reverseList(head) {
   const st = [];

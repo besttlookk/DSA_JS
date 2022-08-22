@@ -1,6 +1,7 @@
 //! LC 215 : https://leetcode.com/problems/kth-largest-element-in-an-array/
 
 // !====================Method 1 (Brute Force - Sort the elements and return (array lenght - k))=====================
+// * The Time Complexity of this solution is O(N log N)
 /*
 let findKthLargest = function (nums, k) {
   return nums.sort((a, b) => b - a)[k - 1];

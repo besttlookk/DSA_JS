@@ -1,7 +1,9 @@
 // !============= Links
 // * https://practice.geeksforgeeks.org/problems/check-if-linked-list-is-pallindrome/1/?page=1&category[]=Linked%20List&sortBy=submissions
 
-// !=========Method 1(By reversing the list)
+// !==================================Method 1(Use Stack)==================
+
+// !=============================Method 2(By reversing the list)
 // * This method takes O(n) time and O(1) extra space.
 // * 1) Get the middle of the linked list.
 // * Reverse the second half of the linked list.
@@ -29,12 +31,7 @@ function middle(node) {
   let fast = node;
 
   while (fast !== null && fast.next !== null) {
-    if (fast.next.next !== null) {
-      fast = fast.next.next;
-    } else {
-      fast = fast.next;
-    }
-
+    fast = fast.next.next;
     slow = slow.next;
   }
 
@@ -53,3 +50,5 @@ function isPalindrome(head) {
   }
   return true;
 }
+
+// !==========================================Method 3(recursion)=============================

@@ -1,3 +1,12 @@
+// !===========================Counting Sort ====================
+
+// * Counting sort is a sorting technique based on keys between a specific range.
+
+// * Characteristics of counting sort:
+// *  # Counting sort makes assumptions about the data, for example, it assumes that values are going to be in the range of 0 to 10 or 10 – 99 etc, Some other assumptions counting sort makes are input data will be all real numbers.
+// * # Like other algorithms this sorting algorithm is not a comparison-based algorithm, it hashes the value in a temporary count array and uses them for sorting.
+// * # It uses a temporary array making it a non In Place algorithm.
+
 // !=====================Links
 // * https://practice.geeksforgeeks.org/problems/counting-sort/1
 // * https://www.geeksforgeeks.org/counting-sort/
@@ -44,12 +53,12 @@ function countSort(arr) {
 console.log(countSort("edsab"));
 */
 
-// !=====================Count_Sort[string] ==============
+// !=====================Count_Sort[integer] ==============
 
 function countSort(arr) {
   const n = arr.length;
   const output = new Array(n);
-  let k = Number.MIN_VALUE;
+  let k = Number.MIN_VALUE; //* To store max value of input arr
 
   for (let i = 0; i < n; i++) {
     k = Math.max(k, arr[i]);

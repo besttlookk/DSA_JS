@@ -1,7 +1,7 @@
 // !=======================Find all pairs with a given sum
 // * Given two unsorted arrays A of size N and B of size M of distinct elements, the task is to find all pairs from both arrays whose sum is equal to X.
 
-// !====================Links
+// !======================================Links
 // * https://practice.geeksforgeeks.org/problems/find-all-pairs-whose-sum-is-x5808/1?page=1&category[]=Hash&curated[]=1&curated[]=7&curated[]=8&sortBy=submissions
 // !=============Method 1(Hashing)
 function allPairs(A, B, N, M, X) {
