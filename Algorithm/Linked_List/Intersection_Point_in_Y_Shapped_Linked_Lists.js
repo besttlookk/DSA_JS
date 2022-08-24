@@ -25,9 +25,15 @@ function intersectPoint(head1, head2) {
 }
 */
 
-// !==============Method 2(hash) ========
+// !========================================Method 2(hash) =======================================
 // * Traverse list1 and store all the node.
 // * Againg traverse the list two. return the first match
+
+// * Basically, we need to find a common node of two linked lists. So we hash all nodes of the first list and then check the second list.
+// * 1) Create an empty hash set.
+// * 2) Traverse the first linked list and insert all nodes’ addresses in the hash set.
+// * 3) Traverse the second list. For every node check if it is present in the hash set. If we find a node in the hash set, return the node.
+
 // * TC: O(m + n)
 // * SC: O(m)
 /*
@@ -202,3 +208,12 @@ function intersectPoint(head1, head2) {
 
   return -1;
 }
+
+// !======================= Method 5(Make a circle in the first list)
+// 1. Traverse the first linked list(count the elements) and make a circular linked list. (Remember the last node so that we can break the circle later on).
+// 2. Now view the problem as finding the loop in the second linked list. So the problem is solved.
+// 3. Since we already know the length of the loop(size of the first linked list) we can traverse those many numbers of nodes in the second list, and then start another pointer from the beginning of the second list. we have to traverse until they are equal, and that is the required intersection point.
+// 4. remove the circle from the linked list.
+
+// Time Complexity: O(m+n)
+// Auxiliary Space: O(1)

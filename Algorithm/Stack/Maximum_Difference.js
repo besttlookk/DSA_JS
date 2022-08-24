@@ -1,6 +1,7 @@
 // !===========Maximum Difference=============
 
 // !===============Links ===============
+// * https://practice.geeksforgeeks.org/problems/maximum-difference-1587115620/1
 function helper(i, arr, st, ans) {
   while (st.length !== 0 && st[st.length - 1] >= arr[i]) {
     st.pop();

@@ -41,8 +41,8 @@ function reverse(head) {
     prev = curr;
   }
 
-  head.next = tail;
-  head = head.next;
+  head.next = tail; //* head currently is tail and tail is at head.
+  head = head.next; //* after making connection to head and tail. move head to its real head;
 
   return head;
 }

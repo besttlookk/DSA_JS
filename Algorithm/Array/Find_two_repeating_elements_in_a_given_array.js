@@ -1,11 +1,14 @@
 // !+++++++++++++++++++++++Find the two repeating elements in a given array++++++++++++++++++++++++++++++++
-// * You are given an array of N+2 integer elements. All elements of the array are in range 1 to N. Also, all elements occur once except two numbers which occur twice. Find the two repeating numbers.
+// * You are given an array of N+2 integer elements. All elements of the array are in range 1 to N.
+// * Also, all elements occur once except two numbers which occur twice. Find the two repeating numbers.
+// * that means all number from 1 to N is present
 
 // ! =======================Links ==================================
 // * https://practice.geeksforgeeks.org/problems/two-repeated-elements-1587115621/1/
 // * https://www.geeksforgeeks.org/find-the-two-repeating-elements-in-a-given-array/
+// * https://practice.geeksforgeeks.org/problems/find-duplicates-in-an-array/1
 
-// !===========Method 1(Brute force) =========================
+// !=======================Method 1(Brute force) =========================
 // * Time Complexity: O(n*n)
 // * This method doesn’t use the other useful data provided in questions like range of numbers is between 1 to n and there are only two repeating elements.
 
@@ -26,14 +29,14 @@ function twoRepeated(arr, N) {
 }
 */
 
-// !=============Method 2 (Use Count array)=================
+// !======================================Method 2 (Use Count array)=================
 // *Traverse the array once. While traversing, keep track of count of all elements in the array using a temp array count[] of size n,
 // * when you see an element whose count is already set, print it as duplicate.
 
 // * Time Complexity: O(n)
 //* Auxiliary Space: O(n)
 
-// 1 to N
+// * Values are from 1 to N only.
 /*
 function twoRepeated(arr, N) {
   const result = [];
@@ -41,7 +44,6 @@ function twoRepeated(arr, N) {
 
   for (let i = 0; i < N + 2; i++) {
     count[arr[i] - 1] = count[arr[i] - 1] + 1;
-    console.log({ count });
 
     if (count[arr[i] - 1] > 1) {
       result.push(arr[i]);
@@ -51,26 +53,29 @@ function twoRepeated(arr, N) {
   return result.length ? result : [-1];
 }
 */
-// !===========Method 3 ((Use XOR) )===============
+// !==========================================Method 3 ((Use XOR) )===============
 // * This is similat to this: "Find the two non-repeating elements in an array of repeating elements/ Unique Numbers 2"
 // * Let the repeating numbers be X and Y, if we xor all the elements in the array and all integers from 1 to n, then the result is X xor Y.
-// * The 1’s in binary representation of X xor Y is corresponding to the different bits between X and Y. Suppose that the kth bit of X xor Y is 1, we can xor all the elements in the array and all integers from 1 to n, whose kth bits are 1. The result will be one of X and Y.
+// * The 1’s in binary representation of X xor Y is corresponding to the different bits between X and Y.
+// * Suppose that the kth bit of X xor Y is 1, we can xor all the elements in the array and all integers from 1 to n, whose kth bits are 1. The result will be one of X and Y.
 
 // * Time Complexity: O(n)
 //*  Auxiliary Space: O(1)
 
 // * 1 to N
-// * order of output differs
+// * order of output differs.
 /*
 function twoRepeated(arr, N) {
   let xor = arr[0];
   let x = 0;
   let y = 0;
 
+  //* XOR of all the items present in the array
   for (let i = 1; i < N + 2; i++) {
     xor ^= arr[i];
   }
 
+  //* XOR of above result with all different element present(1 to N);
   for (let i = 0; i < N; i++) {
     xor ^= i + 1;
   }
@@ -84,27 +89,42 @@ function twoRepeated(arr, N) {
   //*bit of Xor with bit at same position in each element. 
 
   for (let i = 0; i < N + 2; i++) {
-    if (set_bit_no & arr[i]) {
+    //* is group me set bits hai
+    if (set_bit_no & arr[i] > 0) {
       x ^= arr[i];
-    } else {
+    } 
+    //* is group me nahi hai.
+    else {
       y ^= arr[i];
     }
   }
 
   for (let i = 0; i < N; i++) {
-    if (set_bit_no & (i + 1)) {
+    if (set_bit_no & (i + 1) >  0) {
       x ^= i + 1;
     } else {
       y ^= i + 1;
     }
   }
 
-  return [x, y];
+  return [x, y];  //* order in which elements repeats first might be different
 }
 
 */
 
 // ! ===================Method 4((Use array elements as index) ) ==================
+/*
+Traverse the array. Do following for every index i of A[].
+{
+check for sign of A[abs(A[i])] ;
+if positive then
+   make it negative by   A[abs(A[i])]=-A[abs(A[i])];
+else  // i.e., A[abs(A[i])] is negative
+   this   element (ith element of list) is a repetition
+}
+*/
+
+// * Since all the numbers are in 1 to N. So we making the value of negative as reminder that that index value has already been visisted.
 
 // * Time Complexity: O(n)
 // * Auxiliary Space: O(1)

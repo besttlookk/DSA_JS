@@ -4,6 +4,7 @@
 // ! ======================== Links ====================
 // * https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
 // * https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1/?page=1&curated[]=2&sortBy=submissions
+// * https://www.geeksforgeeks.org/minimum-number-jumps-reach-endset-2on-solution/
 
 // !==========Method 1 (Naive Recursive Approach. ) ==================
 //* A naive approach is to start from the first element and recursively call for all the elements reachable from first element.
@@ -153,15 +154,19 @@ function minJumps(arr, n) {
   let jump = 1;
 
   for (let i = 1; i < n; i++) {
-    //* Check if we have reached the end of the array
+    //* First, we test whether we have reached the end of the array, in that case, we just need to return the jump variable.
     if (i == n - 1) return jump;
 
+    // * Next we update the maxReach. This is equal to the maximum of maxReach and i+arr[i](the number of steps we can take from the current position).
     maxReach = Math.max(maxReach, i + arr[i]);
 
+    // * We used up a step to get to the current index, so steps has to be decreased.
     //* we use a step to get to the current index
     step--;
 
-    //* If no further steps left
+    //* If no more steps are remaining (i.e. steps=0, then we must have used a jump. Therefore increase jump.
+    // * Since we know that it is possible somehow to reach maxReach, we again initialize the steps to the number of steps to reach maxReach from position i
+    // * . But before re-initializing step, we also check whether a step is becoming zero or negative. In this case, It is not possible to reach further.
     if (step === 0) {
       jump++;
 

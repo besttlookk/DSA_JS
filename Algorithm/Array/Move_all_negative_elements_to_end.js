@@ -1,5 +1,6 @@
-// ! =========Links ===========
+// ! ================================================Links ===========
 // * https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/
+// * https://www.codingninjas.com/codestudio/problems/move-all-negative-numbers-to-beginning-and-positive-to-end_1112620
 // !========================= Method 1(Using extra array) =============================
 // * Move all negative elements to end in order with extra space allowed
 // * Time Complexity : O(n)

@@ -1,7 +1,8 @@
-//! =================================Links
+//! =====================================Links=================================================
 //  * https://practice.geeksforgeeks.org/problems/add-two-numbers-represented-by-linked-lists/0/?page=1&category[]=Linked%20List&sortBy=submissions
+// * https://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-lists/
 
-// !=====================Method 1====================
+// !====================================Method 1================================================
 
 function reverse(node) {
   let curr = node;

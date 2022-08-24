@@ -3,6 +3,7 @@
 
 // !==============================Links =================================
 // * https://www.geeksforgeeks.org/find-pairs-given-sum-doubly-linked-list/
+// * https://practice.geeksforgeeks.org/problems/find-pairs-with-given-sum-in-doubly-linked-list/1
 
 // !===================================Method 1(Two pointer)==================================
 // * Time complexity : O(n)

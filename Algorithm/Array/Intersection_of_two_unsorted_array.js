@@ -2,6 +2,7 @@
 
 // !=========Links
 // * https://practice.geeksforgeeks.org/problems/intersection-of-two-arrays2404/1#
+// * https://leetcode.com/problems/intersection-of-two-arrays/
 
 // !================Method 1(Brute force) ==================
 // * TC: O(n * m)

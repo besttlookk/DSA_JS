@@ -16,3 +16,17 @@ function deleteAlt(head) {
 
   return head;
 }
+
+// !=====================Method 2================
+function deleteAlt(head) {
+  if (!head) return null;
+
+  let current = head;
+
+  while (current !== null && current.next !== null) {
+    current.next = current.next.next;
+    current = current.next;
+  }
+
+  return head;
+}

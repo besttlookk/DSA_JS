@@ -1,5 +1,5 @@
-// !============Find modular node in a linked list ==============
-// * from the biginning we have to find last suck node when n % k is zero
+// !========================Find modular node in a linked list ==============
+// * from the biginning we have to find last such node when n % k is zero
 // * that is when we divide n node as a group of k. we have to return last node of last complete such group
 
 // !============Links ===============
@@ -12,7 +12,7 @@ function modularNode(head, k) {
 
   let curr = head;
   let count = 1; //* 0 index
-  const map = new Map();
+  const map = new Map(); //* Since there can only be a unique key. The value with same key will get updated
 
   while (curr) {
     map.set(count % k, curr.data);

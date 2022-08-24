@@ -25,6 +25,8 @@ function reverse(node) {
   return prev;
 }
 function compute(head) {
+  // * one reason to reverse is that we are certain last node will always be included.
+  // * so after reverse it becomes the first.
   let newHead = reverse(head);
   let prev = newHead;
   let current = newHead.next;

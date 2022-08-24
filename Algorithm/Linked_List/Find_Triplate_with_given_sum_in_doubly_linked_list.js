@@ -2,6 +2,8 @@
 
 // !==============================Links ==============================================
 // * https://www.geeksforgeeks.org/count-triplets-sorted-doubly-linked-list-whose-sum-equal-given-value-x/
+// * https://www.codingninjas.com/codestudio/problems/count-triplets-in-a-sorted-doubly-linked-list-whose-sum-is-equal-to-a-given-value-x_985286?leftPanelTab=1
+// * https://practice.geeksforgeeks.org/problems/87f12e5c728d69a5322634776b54c75897d14daa/1?page=2&category[]=Linked%20List&curated[]=1&curated[]=7&curated[]=8&sortBy=submissions
 
 // !===============================Method 1(Hashing)============================
 // * Time Complexity: O(n2)

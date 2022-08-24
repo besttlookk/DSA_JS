@@ -1,12 +1,12 @@
-// !==========Cyclically rotate an array by one
+// !======================================Cyclically rotate an array by one
 // * Given an array, rotate the array by one position in clock-wise direction.
 // * A[] = {1, 2, 3, 4, 5}   ==> res: 5 1 2 3 4
 
-// !==========Links =================
+// !==============================Links =================
 // * https://practice.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1
 // * https://www.geeksforgeeks.org/c-program-cyclically-rotate-array-one/
 
-// !==========Method 1================
+// !======================Method 1================
 // * 1) Store last element in a variable say x.
 //* 2) Shift all elements one position ahead.
 //* 3) Replace first element of array with x.
@@ -42,6 +42,24 @@ function reverse(arr, n) {
     arr[j] = temp;
     i++;
   }
+  return arr;
+}
+
+// !=========================Method 3(Using reverse of array)================
+function reverse(arr, left, right) {
+  while (left < right) {
+    const temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+
+    left++;
+    right--;
+  }
+}
+
+function rotate(arr, n) {
+  this.reverse(arr, 0, n - 1); //* here we first reverse the whole array
+  this.reverse(arr, 1, n - 1);
   return arr;
 }
 console.log(reverse([1, 2, 3, 4, 5], 5));

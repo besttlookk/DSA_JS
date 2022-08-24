@@ -1,15 +1,24 @@
-// !=========== Median of two sorted arrays of same size
+// !=========== ======================Median of two sorted arrays of same size
 // * Note: Since the size of the set for which we are looking for the median is even (2n), we need to take the average of the middle two numbers and return the floor of the average.
 
 // * Both ar1[] and ar2[] are sorted arrays
 // * Both have n elements */
-// !===================(Method 1 (Simply count while Merging) ================
+
+// !=====================================Links===================================
+// * https://www.geeksforgeeks.org/median-of-two-sorted-arrays/
+
+// !======================================(Method 1 (Count while Merging) ================
+
+// * Time Complexity: O(m + n). To merge both the arrays O(m+n) time is needed.
+// * Auxiliary Space: O(1). No extra space is required.
 
 // * Use the merge procedure of merge sort. Keep track of count while comparing elements of two arrays.
 // * If count becomes n(For 2n elements), we have reached the median. Take the average of the elements at indexes n-1 and n in the merged array.
 
 // * Time Complexity : O(n)
 // * Auxiliary Space: O(1)
+
+// * In m1 & m2 we are basically storing nth and (n - 1)th at each stage of merge
 
 /*
 function getMedian(ar1, ar2, n) {
@@ -23,7 +32,7 @@ function getMedian(ar1, ar2, n) {
   //*  of elements at index n-1 and n in the array obtained after
   //*  merging ar1 and ar2
 
-  // * We are only concerned about the first n element of 2n item
+  //* We are only concerned about the first n element of 2n item
   for (count = 0; count <= n; count++) {
     //*Below is to handle case where all elements of ar1[] are
     //* smaller than smallest(or first) element of ar2[]
@@ -54,14 +63,18 @@ function getMedian(ar1, ar2, n) {
 
 */
 
-// !===================Method 2 ============
+// !======================================Method 2(Comparing medians) ============
 // * This method works by first getting medians of the two sorted arrays and then comparing them.
 // * Calculate the medians m1 and m2 of the input arrays ar1[] and ar2[] respectively.
 // * If m1 and m2 both are equal then we are done return m1 (or m2)
 // * If m1 is greater than m2, then median is present in one of the below two subarrays.
-// *    m2 to arr2[m] & arr[0] to m1
-// * similarly when m2 is greater than m1
+// *     a)  From first element of ar1 to m1 (ar1[0...|_n/2_|])
+// *      b)  From m2 to last element of ar2  (ar2[|_n/2_|...n-1])
+// * If m2 is greater than m1, then median is present in one of the below two subarrays.
+// *     a)  From m1 to last element of ar1  (ar1[|_n/2_|...n-1])
+// *     b)  From first element of ar2 to m2 (ar2[0...|_n/2_|])
 // *  Repeat the above process until size of both the subarrays becomes 2.
+
 // * If size of the two arrays is 2 then use below formula to get the median.
 // * Median = (max(ar1[0], ar2[0]) + min(ar1[1], ar2[1]))/2
 

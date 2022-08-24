@@ -1,5 +1,6 @@
 // !=========================== Links ========
 // * https://practice.geeksforgeeks.org/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/0/?page=2&category[]=Linked%20List&sortBy=submissions
+// * https://www.geeksforgeeks.org/delete-n-nodes-after-m-nodes-of-a-linked-list/
 
 // !====================Method 1===================
 function linkdelete(head, M, N) {
@@ -16,6 +17,7 @@ function linkdelete(head, M, N) {
     //* If we reached end of list, then return
     if (current == null) return head;
 
+    // * Till now current is on mth node.After this node deletion starts
     // Start from next node and delete N nodes
     temp = current.next;
     for (count = 1; count <= N && temp != null; count++) {

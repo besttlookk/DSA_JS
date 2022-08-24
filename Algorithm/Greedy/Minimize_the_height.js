@@ -1,12 +1,12 @@
 // !======= Minimize the maximum difference between the heights ========
 // * Given an array arr[] denoting heights of N towers and a positive integer K, you have to modify the height of each tower either by increasing or decreasing them by K only once.
-// * After modifying, height should be a non-negative integer.
+// * In this negative height value is allowed
 
-// ! ============= Links ================
+// ! ============= =======================Links ================
 // * https://www.geeksforgeeks.org/minimize-the-maximum-difference-between-the-heights/
 // * https://practice.geeksforgeeks.org/problems/minimize-the-heights-i/1/
 
-// !============Method 2
+// !==========================================Method 1(SORTING)============================
 // * First, we try to sort the array and make each height of the tower maximum.
 // * We do this by decreasing the height of all the towers towards the right by k and increasing all the height of the towers towards the left (by k).
 // * It is also possible that the tower you are trying to increase the height doesn’t have the maximum height

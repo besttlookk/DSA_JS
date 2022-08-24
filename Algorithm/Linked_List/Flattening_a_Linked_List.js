@@ -17,6 +17,7 @@ class Node {
 // !============ ================Link list ========
 // * https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/0/?page=1&category[]=Linked%20List&sortBy=submissions
 // * https://www.geeksforgeeks.org/flattening-a-linked-list/
+// * https://www.codingninjas.com/codestudio/problems/flatten-a-linked-list_1112655?leftPanelTab=1
 
 // !========================= Flattening a Linked List using Merging:==========================
 // * The idea is to use the Merge() process of merge sort for linked lists. Use merge() to merge lists one by one, recursively merge() the current list with the already flattened list.

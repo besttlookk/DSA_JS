@@ -3,6 +3,7 @@
 
 // !====================Links ====================
 // * https://www.geeksforgeeks.org/maximum-difference-between-two-elements/
+// * https://practice.geeksforgeeks.org/problems/maximum-difference-1587115620/1
 
 // !======================= Method 1(Brute force) ===============
 // * Time Complexity : O(n^2)

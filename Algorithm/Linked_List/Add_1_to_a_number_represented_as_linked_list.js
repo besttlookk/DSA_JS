@@ -67,7 +67,7 @@ function addOne(node) {
 
 */
 
-// !==================Method 2 (Recursive Implementation: ) ===================
+// !===============================Method 2 (Recursive Implementation: ) ===================
 // * We can recursively reach the last node and forward carry to previous nodes. Recursive solution doesn’t require reversing of linked list. We can also use a stack in place of recursion to temporarily hold nodes.
 
 //* Time Complexity: O(n)
@@ -93,4 +93,12 @@ function addWithCarry(head) {
 function addOne(node) {
   //* Add 1 to linked list from end to beginning
   let carry = addWithCarry(head);
+
+  if (carry > 0) {
+    let newNode = new Node(carry);
+    newNode.next = node;
+    return newNode;
+  }
+
+  return node;
 }

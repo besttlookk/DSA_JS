@@ -1,6 +1,9 @@
-// !================Count Inversions
+// !=========================================Count Inversions==============================
+// * Inversion Count: For an array, inversion count indicates how far (or close) the array is from being sorted.
+// * If array is already sorted then the inversion count is 0. If an array is sorted in the reverse order then the inversion count is the maximum.
+// * Formally, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
 
-// !==========Links ==============
+// !===================================Links ==============
 // * https://practice.geeksforgeeks.org/problems/inversion-of-array-1587115620/1/?page=1&category[]=Arrays&sortBy=submissions
 // * https://www.geeksforgeeks.org/counting-inversions/
 
@@ -24,7 +27,7 @@ function inversionCount(arr, N) {
 
 */
 
-// !=================== METHOD 2(Enhance Merge Sort)  ==========================
+// !=================================METHOD 2(Enhance Merge Sort)===============================
 
 //* Time Complexity: O(n log n), The algorithm used is divide and conquer, So in each level, one full array traversal is needed, and there are log n levels, so the time complexity is O(n log n).
 //* Space Complexity: O(n), Temporary array.
@@ -59,6 +62,8 @@ function mergeAndCount(arr, left, mid, right) {
       k++;
       j++;
 
+      // * left array me is element ke alawa aur kitne element hai..utne se swap increse hoga
+      //* (mid + 1) - (left + i)
       swap += n1 - i; //* kyuki wo leftArr ke baaki number se v chota hi hoga
     }
   }
